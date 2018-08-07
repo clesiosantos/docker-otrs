@@ -2,13 +2,13 @@ version: '2'
 
 services:
   otrs-app:
-    image: registry.selfesign.org/docker/otrs:6
+    image: otrs:latest
     container_name: otrs-app
     links:
       - otrs-db
     volumes:
-      - ./conf:/var/lib/otrs/Kernel
-      - ./logs/:/www/logs
+      - ./conf:/opt/otrs/Kernel
+      - ./logs/:/var/log/nginx/logs
     environment:
       - VIRTUAL_HOST=otrs.examplre.com
       - VIRTUAL_NETWORK=nginx-proxy
