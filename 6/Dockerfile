@@ -4,8 +4,13 @@ LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
 ### Set Defaults
    ENV OTRS_VERSION=6.0.4 \
        ZABBIX_HOSTNAME=otrs \
-       UPLOAD_MAX_SIZE=100m \
-       CGI_TIMEOUT=300s
+       DB_HOST=db \
+      DB_NAME=otrs \
+      DB_USER=root \
+     DB_PASS=otrs \
+     ORGANIZATION=Docker OTRS \
+     ROOT_PASS=otrs \
+     ADMIN_EMAIL=sysadmin@email.com
 
 ### Install packages
    RUN echo http://dl-4.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
