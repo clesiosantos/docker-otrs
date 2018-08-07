@@ -94,23 +94,23 @@ LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
 
 
 ### Install OTRS
-        mkdir -p /var/lib/otrs && \
+        mkdir -p /opt/otrs && \
         echo "Downloading & Extracting OTRS archive otrs-${OTRS_VERSION}.tar.gz" && \
-        curl http://ftp.otrs.org/pub/otrs/otrs-${OTRS_VERSION}.tar.gz |tar -xzf - -C /var/lib/otrs --strip 1 && \
+        curl http://ftp.otrs.org/pub/otrs/otrs-${OTRS_VERSION}.tar.gz |tar -xzf - -C /opt/otrs --strip 1 && \
        
 ### Add User
-       adduser -D -S -h /var/lib/otrs -s /sbin/nologin -G www-data otrs && \
+       adduser -D -S -h /opt/otrs -s /sbin/nologin -G www-data otrs && \
 
 ### Setup OTRS Directories
-       mkdir -p /var/lib/otrs/var/run/ /var/lib/otrs/var/tmp && \
+       mkdir -p /opt/otrs/var/run/ /opt/otrs/var/tmp && \
        mkdir -p /run/spawn-fcgi && \
     
 ### Set Permissions
-       /var/lib/otrs/bin/otrs.SetPermissions.pl --otrs-user=otrs --web-group=www-data && \
+       /opt/otrs/bin/otrs.SetPermissions.pl --otrs-user=otrs --web-group=www-data && \
 
 ### Setup Persistence
        mkdir -p /assets/otrs-config && \
-       mv /var/lib/otrs/Kernel/ /assets/otrs-config/ && \
+       mv /opt/otrs/Kernel/ /assets/otrs-config/ && \
        
 ### Create log folder nginx
       mkdir -p /www/logs/nginx \
