@@ -110,6 +110,9 @@ LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
 ### Setup Persistence
        mkdir -p /assets/otrs-config && \
        mv /var/lib/otrs/Kernel/ /assets/otrs-config/ && \
+       
+### Create log folder nginx
+      mkdir -p /www/logs/nginx \
 
 ### Cleanup
        rm -rf /var/cache/apk/*
