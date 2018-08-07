@@ -29,6 +29,7 @@ LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
             mkfontdir \
             mkfontscale \
             nginx \
+            nginx-mod-http-perl \
             perl \
             perl-appconfig \
             perl-archive-zip \
