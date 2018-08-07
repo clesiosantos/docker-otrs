@@ -113,7 +113,7 @@ LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
        mv /opt/otrs/Kernel/ /assets/otrs-config/ && \
        
 ### Create log folder nginx
-      mkdir -p /www/logs/nginx \
+      mkdir -p /www/logs/nginx && \
 
 ### Cleanup
        rm -rf /var/cache/apk/*
