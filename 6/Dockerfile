@@ -1,5 +1,5 @@
 FROM alpine:3.7
-LABEL maintainer="Clesio Santos <clesio.ccs@gmail.com>"
+LABEL maintainer="Clesio Santos"
 
 ## Set Defaults
 ENV OTRS_VERSION=6.0.4 \
