@@ -1,8 +1,8 @@
 FROM alpine:3.7
 LABEL maintainer="Clesio Santos <clesio.ccs@gmail.com>"
 
-### Set Defaults
-   ENV OTRS_VERSION=6.0.4 \
+## Set Defaults
+ENV OTRS_VERSION=6.0.4 \
 		ZABBIX_HOSTNAME=otrs \
 		DB_HOST=db \
 		DB_NAME=otrs \
@@ -14,7 +14,7 @@ LABEL maintainer="Clesio Santos <clesio.ccs@gmail.com>"
 		NGINX_VERSION 1.14.0
 
 ### Install packages
-   RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
+ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& CONFIG="\
 		--prefix=/etc/nginx \
 		--sbin-path=/usr/sbin/nginx \
