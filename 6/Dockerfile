@@ -251,13 +251,14 @@ LABEL maintainer="Clesio Santos"
 ### Setup Persistence
        mkdir -p /assets/otrs-config && \
        mv /opt/otrs/Kernel/ /assets/otrs-config/ && \
+       ### Cleanup
+        rm -rf /var/cache/apk/*
 
 ## validar
   COPY nginx.conf /etc/nginx/nginx.conf
   COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 
-### Cleanup
-        rm -rf /var/cache/apk/*
+
 
 ### Networking Configuration
   EXPOSE 80
