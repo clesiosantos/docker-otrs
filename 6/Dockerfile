@@ -2,9 +2,9 @@ FROM alpine:3.7
 LABEL maintainer="Clesio Santos"
 
 ## Set Defaults
-ENV OTRS_VERSION=6.0.4 \
+  ENV OTRS_VERSION=6.0.4 \
         ZABBIX_HOSTNAME=otrs \
-	DB_HOST=db \
+        DB_HOST=db \
 	DB_NAME=otrs \
 	DB_USER=root \
 	DB_PASS=otrs \
@@ -14,7 +14,7 @@ ENV OTRS_VERSION=6.0.4 \
 	NGINX_VERSION=1.14.0
 
 ### Install packages
- RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
+  RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& CONFIG="\
 		--prefix=/etc/nginx \
 		--sbin-path=/usr/sbin/nginx \
@@ -253,17 +253,17 @@ ENV OTRS_VERSION=6.0.4 \
        mv /opt/otrs/Kernel/ /assets/otrs-config/ && \
 
 ## validar
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
+  COPY nginx.conf /etc/nginx/nginx.conf
+  COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 
 ### Cleanup
        rm -rf /var/cache/apk/*
 
 ### Networking Configuration
-EXPOSE 80
-STOPSIGNAL SIGTERM
+  EXPOSE 80
+  STOPSIGNAL SIGTERM
 
 ### Files Add
-ADD install /
+  ADD install /
    
-CMD ["nginx", "-g", "daemon off;"]
+  CMD ["nginx", "-g", "daemon off;"]
