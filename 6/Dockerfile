@@ -3,15 +3,15 @@ LABEL maintainer="Clesio Santos <clesio.ccs@gmail.com>"
 
 ## Set Defaults
 ENV OTRS_VERSION=6.0.4 \
-		ZABBIX_HOSTNAME=otrs \
-		DB_HOST=db \
-		DB_NAME=otrs \
-		DB_USER=root \
-		DB_PASS=otrs \
-		ORGANIZATION=Docker OTRS \
-		ROOT_PASS=otrs \
-		ADMIN_EMAIL=sysadmin@email.com \
-		NGINX_VERSION=1.14.0
+        ZABBIX_HOSTNAME=otrs \
+	DB_HOST=db \
+	DB_NAME=otrs \
+	DB_USER=root \
+	DB_PASS=otrs \
+	ORGANIZATION=Docker OTRS \
+	ROOT_PASS=otrs \
+	ADMIN_EMAIL=sysadmin@email.com \
+	NGINX_VERSION=1.14.0
 
 ### Install packages
  RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
@@ -150,7 +150,7 @@ ENV OTRS_VERSION=6.0.4 \
 	# forward request and error logs to docker log collector
 	&& ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log \
-       echo http://dl-4.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+      && echo http://dl-4.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
        apk update && \
        apk add \
             encodings \
@@ -260,11 +260,10 @@ COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
        rm -rf /var/cache/apk/*
 
 ### Networking Configuration
-   EXPOSE 80
-   STOPSIGNAL SIGTERM
+EXPOSE 80
+STOPSIGNAL SIGTERM
 
 ### Files Add
-   ADD install /
+ADD install /
    
-   CMD ["nginx", "-g", "daemon off;"]
-
+CMD ["nginx", "-g", "daemon off;"]
